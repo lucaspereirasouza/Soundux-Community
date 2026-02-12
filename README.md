@@ -69,13 +69,13 @@
 https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/
 
 # 👀 Preview
-| ![Dark Interface](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/home-dark.png)                   | ![Light Interface](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/home-light.png)                   |
+| ![Dark Interface](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/soundboard-dark.png)                   | ![Light Interface](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/soundboard-light.png)                   |
 | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | ![Settings Dark](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/settings-dark.png)                | ![Settings Light](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/settings-light.png)                |
 | ![Search Dark](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/search-dark.png)                    | ![Search Light](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/search-light.png)                    |
-| ![Application Passthrough](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/pass-through-dark.png)  | ![Application Passthrough](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/pass-through-light.png)   |
-| ![Seek/Pause/Stop Dark](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/multiple-playing-dark.png) | ![Seek/Pause/Stop Light](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/multiple-playing-light.png) |
-| ![Grid View Dark](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/grid-view-dark.png)              | ![Grid View Light](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/grid-view-light.png)              |
+| ![Application Passthrough](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/passThrough-dark.png)  | ![Application Passthrough](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/passThrough-light.png)   |
+| ![Seek/Pause/Stop Dark](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/playing-dark.png) | 
+| ![Community Myinstant api](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/community-dark.png)              | ![Grid View Light](https://raw.githubusercontent.com/lucaspereirasouza/screenshots-community/refs/heads/master/screenshots/community-light.png)              |
 
 # 👋 Introduction
 Soundux is a cross-platform soundboard that features a simple user interface.
