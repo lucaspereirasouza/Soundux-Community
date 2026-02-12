@@ -32,6 +32,7 @@ namespace Soundux
             bool minimizeToTray = false;
             bool tabHotkeysOnly = false;
             bool deleteToTrash = true;
+            std::string communityDownloadPath;
         };
     } // namespace Objects
 } // namespace Soundux

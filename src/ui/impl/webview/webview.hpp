@@ -20,6 +20,9 @@ namespace Soundux
             void setupTray();
             void fetchTranslations();
 
+            std::string getCommunitySounds(const std::string &query);
+            bool downloadCommunitySound(const std::string &url, const std::string &name);
+
             void onAllSoundsFinished() override;
             Settings changeSettings(Settings newSettings) override;
 

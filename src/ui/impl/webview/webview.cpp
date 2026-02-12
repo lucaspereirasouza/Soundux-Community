@@ -3,12 +3,14 @@
 #include <cstdint>
 #include <fancy.hpp>
 #include <filesystem>
+#include <fstream>
 #include <helper/audio/linux/pulseaudio/pulseaudio.hpp>
 #include <helper/audio/windows/winsound.hpp>
 #include <helper/json/bindings.hpp>
 #include <helper/systeminfo/systeminfo.hpp>
 #include <helper/version/check.hpp>
 #include <helper/ytdl/youtube-dl.hpp>
+#include <httplib.h>
 
 #ifdef _WIN32
 #include "../../assets/icon.h"
@@ -78,8 +80,86 @@ namespace Soundux::Objects
     {
         webview->show();
     }
+    std::string WebView::getCommunitySounds(const std::string &query)
+    {
+        httplib::Client cli("https://www.myinstants.com");
+
+        std::string encodedQuery;
+        for (char c : query)
+        {
+            if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~')
+            {
+                encodedQuery += c;
+            }
+            else
+            {
+                char buf[4];
+                sprintf(buf, "%%%02X", (unsigned char)c);
+                encodedQuery += buf;
+            }
+        }
+
+        auto res = cli.Get(("/api/v1/instants/?format=json&name=" + encodedQuery).c_str());
+
+        if (res && res->status == 200)
+        {
+            return res->body;
+        }
+        return "[]";
+    }
+
+    bool WebView::downloadCommunitySound(const std::string &url, const std::string &name)
+    {
+        auto &path = Globals::gSettings.communityDownloadPath;
+        if (path.empty())
+        {
+            Fancy::fancy.logTime().warning() << "Community download path not set!" << std::endl;
+            onError(Enums::ErrorCode::FolderDoesNotExist);
+            return false;
+        }
+
+        if (!std::filesystem::exists(path))
+        {
+            std::filesystem::create_directories(path);
+        }
+
+        size_t schemeEnd = url.find("://");
+        if (schemeEnd == std::string::npos)
+            return false;
+
+        size_t domainEnd = url.find("/", schemeEnd + 3);
+        if (domainEnd == std::string::npos)
+            domainEnd = url.length();
+
+        std::string domain = url.substr(0, domainEnd);
+        std::string pathPart = url.substr(domainEnd);
+
+        httplib::Client cli(domain.c_str());
+        cli.set_follow_location(true);
+
+        auto res = cli.Get(pathPart.c_str());
+
+        if (res && res->status == 200)
+        {
+            std::filesystem::path filePath = std::filesystem::path(path) / (name + ".mp3");
+            std::ofstream file(filePath, std::ios::binary);
+            file.write(res->body.c_str(), res->body.size());
+            return true;
+        }
+
+        return false;
+    }
     void WebView::exposeFunctions()
     {
+        webview->expose(
+            Webview::AsyncFunction("getCommunitySounds", [this](Webview::Promise promise, const std::string &query) {
+                promise.resolve(getCommunitySounds(query));
+            }));
+        webview->expose(
+            Webview::AsyncFunction("downloadCommunitySound",
+                                   [this](Webview::Promise promise, const std::string &url, const std::string &name) {
+                                       promise.resolve(downloadCommunitySound(url, name));
+                                   }));
         webview->expose(Webview::Function("getSettings", []() { return Globals::gSettings; }));
         webview->expose(Webview::Function("isLinux", []() {
 #if defined(__linux__)
