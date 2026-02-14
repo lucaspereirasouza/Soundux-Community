@@ -149,7 +149,7 @@ Download our installer or portable from [the latest release](https://github.com/
 
 #### <img src="https://www.vectorlogo.zone/logos/debian/debian-icon.svg" height="20"/> Debian / <img src="https://www.vectorlogo.zone/logos/ubuntu/ubuntu-icon.svg" height="20"/> Ubuntu and derivatives
 ```sh
-sudo apt install git build-essential cmake libx11-dev libxi-dev libwebkit2gtk-4.0-dev libappindicator3-dev libssl-dev libpulse-dev libpipewire-0.3-dev
+sudo apt install git build-essential cmake libx11-dev libxi-dev libwebkit2gtk-4.1-dev libappindicator3-dev libssl-dev libpulse-dev libpipewire-0.3-dev
 ```
 > If you're on Ubuntu 20.04 or lower you might have to add the PipeWire PPA:
 > `sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream`
